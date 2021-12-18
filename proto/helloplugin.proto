@@ -1,0 +1,20 @@
+//protoc -I proto/ proto/print.proto --go_out=plugins=grpc:proto/ --go_out=. --go_opt=paths=source_relative
+syntax = "proto3";
+option go_package = "github.com/sxy/try-go-plugin/proto";
+
+package proto;
+
+message Empty {}
+
+service HelloPlugin {
+  // Sends a greeting
+  rpc Hello (Request) returns (Response) {}
+}
+
+message Request{
+  string name = 1;
+}
+message Response{
+  string result = 1;
+}
+
